@@ -1,10 +1,11 @@
 
 import React from 'react';
+import { FilterValuesType } from '../App';
 
 
 // Строго пеердаёт тип данных, для всех типов содержащихся в массиве объектов.
 export type TaskType = {
-  id: number // число
+  id: string // число
   title: string // строка
   isDone: boolean // true/false
 }
@@ -12,7 +13,8 @@ export type TaskType = {
 type PropsType = {
   title: string
   tasks: Array<TaskType>
-  removeTask: Function
+  removeTask: (taskId: string) => void
+  changeFilter: (value: FilterValuesType) => void
 }
 
 
@@ -36,9 +38,11 @@ export function TodoList(props: PropsType) {
         }
       </ul>
       <div>
-        <button>All</button>
-        <button>Active</button>
-        <button>Completed</button>
+        <button onClick={ () => { props.changeFilter("all")}}>All</button>
+        <button onClick={ () => { props.changeFilter("active")}}>Active</button>
+        <button onClick={ () => { props.changeFilter("completed")}}>Completed</button>
+        {/* <button>Active</button>
+        <button>Completed</button> */}
       </div>
     </div>
   )
