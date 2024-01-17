@@ -13,22 +13,21 @@ function App() {
     { id: v1(), title: "JS", isDone: true },
     { id: v1(), title: "React", isDone: true },
     { id: v1(), title: "Redux", isDone: false },
-    { id: v1(), title: "Store", isDone: false },
-    { id: v1(), title: "C++", isDone: false },
-    { id: v1(), title: "C#", isDone: false },
-    { id: v1(), title: "GraphQl", isDone: false },
-    { id: v1(), title: "pyton", isDone: false },
-    { id: v1(), title: "php", isDone: false },
+    { id: v1(), title: "CSS", isDone: true },
+    { id: v1(), title: "JS", isDone: true },
+    { id: v1(), title: "React", isDone: true },
+    { id: v1(), title: "Redux", isDone: false },
+    { id: v1(), title: "CSS", isDone: true },
+    { id: v1(), title: "JS", isDone: true },
+    { id: v1(), title: "React", isDone: true },
+    { id: v1(), title: "Redux", isDone: false },
   ]);
-
-  console.log(tasks);
-
-  let [filter, setFilter] = useState<FilterValuesType>("all");
 
   function removeTask(id: string) {
     let filteredTasks = tasks.filter(itemTask => (itemTask.id !== id));
     setTasks(filteredTasks);
   }
+
   function addTask(title: string) {
     let newTask = {
       id: v1(),
@@ -39,11 +38,22 @@ function App() {
     setTasks(newTasks)
   }
 
+  function changeStatus(taskId: string, isDone: boolean) {
+    let task = tasks.find(t => t.id === taskId);
+    if (task) {
+      task.isDone = isDone;
+    }
+    setTasks([...tasks]);
+  }
+
+  let [filter, setFilter] = useState<FilterValuesType>("all");
+
   function changeFilter(value: FilterValuesType) {
     setFilter(value);
   }
 
   let tasksForTodoList = tasks;
+
   if (filter === "completed") {
     tasksForTodoList = tasks.filter(t => t.isDone === true);
   }
@@ -59,6 +69,8 @@ function App() {
         removeTask={removeTask}
         changeFilter={changeFilter}
         addTask={addTask}
+        changeTaskStatus={changeStatus}
+        filter={filter}
       />
     </div>
   );
