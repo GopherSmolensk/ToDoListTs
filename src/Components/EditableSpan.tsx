@@ -6,6 +6,8 @@ type EditableSpanPropsType = {
     onChange: (newValue: string) => void
 }
 
+// Проверка поведения состояния тудулистов
+
 export function EditableSpan(props: EditableSpanPropsType) {
     let [editMode, setEditMode] = useState(false);
     let [title, setTitle] = useState("");
