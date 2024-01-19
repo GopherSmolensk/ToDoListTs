@@ -1,6 +1,7 @@
 
 import { ChangeEvent, useState, KeyboardEvent } from 'react';
 
+// Форма добавления тудулиста
 
 type AddItemPropsType = {
     addItem: (title: string) => void
