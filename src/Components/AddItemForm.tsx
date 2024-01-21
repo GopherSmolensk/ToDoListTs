@@ -1,19 +1,15 @@
-
 import { ChangeEvent, useState, KeyboardEvent } from 'react';
-
 
 // Библиотека Material UI
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 
-
 // Форма добавления тудулиста
 
 type AddItemPropsType = {
   addItem: (title: string) => void
 }
-
 
 export function AddItemForm(props: AddItemPropsType) {
   const [newTaskTitle, setNewTaskTitle] = useState("");
@@ -39,11 +35,6 @@ export function AddItemForm(props: AddItemPropsType) {
   }
 
   return <div>
-    {/* <input value={newTaskTitle}
-      onChange={onNewTitleChangeHandler}
-      onKeyDown={onKeyDownHandler}
-      className={error ? "error" : ""}
-    /> */}
 
     <TextField
       value={newTaskTitle}
@@ -58,7 +49,6 @@ export function AddItemForm(props: AddItemPropsType) {
     <IconButton onClick={addTask} color={'primary'}>
       <ControlPointIcon />
     </IconButton>
-
 
   </div>
 

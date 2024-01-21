@@ -1,4 +1,3 @@
-
 import { ChangeEvent } from 'react';
 import { FilterValuesType } from '../App';
 import { AddItemForm } from './AddItemForm';
@@ -8,8 +7,6 @@ import { EditableSpan } from './EditableSpan';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
-
-
 
 // Строго пеердаёт тип данных, для всех типов содержащихся в массиве объектов.
 export type TaskType = {
@@ -31,7 +28,6 @@ type PropsType = {
   removeTodolist: (todolistId: string) => void
   changeTodoListTitle: (todolistId: string, newTitle: string) => void
 }
-
 
 export function TodoList(props: PropsType) {
 
@@ -98,5 +94,3 @@ export function TodoList(props: PropsType) {
     </div>
   )
 }
-
-
