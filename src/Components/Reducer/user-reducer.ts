@@ -17,17 +17,26 @@ type ActionType = {
 //  как его преобразовывать или что с ним делать.
 // "action" это объект
 // аргументы должны быть однозначно протипизированы
-export const userReducer = (state: any, action: any) => {
-
+export const userReducer = (state: StateType, action: ActionType) => {
     // Переключатель (switch) в зависимости от случая(case) выбирает на что ему перключиться
     // Он принимает action.type и в зависимости от объекта action перелючает эти самые случаи(case)
     switch (action.type) {
         // случай первый
-        case "one step":
+        // если тип action 'INCREMENT-AGE'
+        case 'INCREMENT-AGE':
+            // который равен age и и увеличь счётчие на 1
+            state.age = state.age + 1;
+            // после этого верни новый state
+            return state;
         // случай два
-        case "two step":
+        // если тип action 'INCREMENT-CHILDREN-COUNT'
+        case 'INCREMENT-CHILDREN-COUNT':
+            // который равен childrenCount и увеличь счётчие на 1
+            state.childrenCount = state.childrenCount + 1;
+            return state;
         // обработчик событий если по условию не выпал ни один из результатов
         default:
-            throw new Error("Что то пошло не так")
+            // 
+            throw new Error("I don't understand this action type")
     }
 }
