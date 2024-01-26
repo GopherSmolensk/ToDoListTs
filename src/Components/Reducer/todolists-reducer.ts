@@ -30,12 +30,14 @@ export type ChangeTodolistFilterActionType = {
     filter: FilterValuesType
 }
 
-export type ActionsType =
-    RemoveTodolistActionType
-    | AddTodolistActionType
-    | ChangeTodolistTitleActionType
-    | ChangeTodolistFilterActionType
+export type ActionsType = RemoveTodolistActionType | AddTodolistActionType
+    | ChangeTodolistTitleActionType | ChangeTodolistFilterActionType
 
+
+// Функция которая принимает наш стэйт и в зависимости от условия(action)
+//  как его преобразовывать или что с ним делать.
+// "action" это объект
+// аргументы должны быть однозначно протипизированы
 export const todolistsReducer = (state: Array<TodolistType>, action: ActionsType): Array<TodolistType> => {
     switch (action.type) {
         case 'REMOVE-TODOLIST': {

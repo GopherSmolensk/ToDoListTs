@@ -6,7 +6,7 @@ import { v1 } from "uuid";
 import { FilterValuesType, TodolistType } from '../../App';
 
 
-
+// удаление
 test('correct todolist should be removed', () => {
     // Стартовые дынные
     let todolistId1 = v1();
@@ -23,6 +23,7 @@ test('correct todolist should be removed', () => {
     expect(endState[0].id).toBe(todolistId2)
 });
 
+ // добавление
 test('correct todolist should be added', () => {
     // Стартовые дынные
     let todolistId1 = v1();
@@ -42,6 +43,7 @@ test('correct todolist should be added', () => {
     expect(endState[2].filter).toBe("all");
 });
 
+// изменение названия
 test('correct todolist should change its name', () => {
     // Стартовые дынные
     let todolistId1 = v1();
@@ -53,6 +55,7 @@ test('correct todolist should change its name', () => {
         { id: todolistId1, title: "What to learn", filter: "all" },
         { id: todolistId2, title: "What to bue", filter: "all" },
     ]
+    
     // какое то действие с этими данными
     // const action =  {
     //     type: 'CHANGE-TODOLIST-TITLE' as const,
@@ -69,6 +72,7 @@ test('correct todolist should change its name', () => {
     expect(endState[1].title).toBe(newTodolistTitle);
 });
 
+// фильтр списка FilterValuesType = "all" | "active" | "completed";
 test('correct filter of todolist should be change', () => {
     // Стартовые дынные
     let todolistId1 = v1();
