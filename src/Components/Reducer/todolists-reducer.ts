@@ -35,10 +35,14 @@ export type ActionsType = RemoveTodolistActionType | AddTodolistActionType
 
 
 // Функция которая принимает наш стэйт и в зависимости от условия(action)
+
+// тоесть REDUCER ====>>>>> ЭТО ФУНКЦИЯ КОТОРАЯ ПРЕОБРАЗОВЫВАЕТ СТАЙТ А НЕ ХРАНИТ ЕГО!!!!
+
 //  как его преобразовывать или что с ним делать.
 // "action" это объект
 // аргументы должны быть однозначно протипизированы
 export const todolistsReducer = (state: Array<TodolistType>, action: ActionsType): Array<TodolistType> => {
+    // переключатель в зависимости от случая(case)
     switch (action.type) {
         case 'REMOVE-TODOLIST': {
             return state.filter(itemTask => itemTask.id != action.id)
@@ -73,15 +77,15 @@ export const todolistsReducer = (state: Array<TodolistType>, action: ActionsType
     }
 }
 
-export const RemoveTodoListAC = (TodolistId: string): RemoveTodolistActionType => {
+export const removeTodoListAC = (TodolistId: string): RemoveTodolistActionType => {
     return { type: 'REMOVE-TODOLIST', id: TodolistId }
 }
-export const AddTodoListAC = (title: string): AddTodolistActionType => {
+export const addTodoListAC = (title: string): AddTodolistActionType => {
     return { type: 'ADD-TODOLIST', title: title }
 }
-export const ChangeTodolistTitleAC = (id: string, title: string): ChangeTodolistTitleActionType => {
+export const changeTodolistTitleAC = (id: string, title: string): ChangeTodolistTitleActionType => {
     return { type: 'CHANGE-TODOLIST-TITLE', title: title, id: id }
 }
-export const ChangeTodolistFilterAC = (id: string, filter: FilterValuesType): ChangeTodolistFilterActionType => {
+export const changeTodolistFilterAC = (id: string, filter: FilterValuesType): ChangeTodolistFilterActionType => {
     return { type: 'CHANGE-TODOLIST-FILTER', filter: filter, id: id }
 }
