@@ -41,10 +41,11 @@ export const tasksReducer = (state: TasksStateType, action: ActionsType): TasksS
             throw new Error("I don't understand this action type")
     }
 }
-
+// удаление
 export const removeTaskAC = ( taskId: string, todolistId: string): RemoveTaskActionType => {
     return { type: 'REMOVE-TASK',taskId: taskId, todolistId: todolistId,  }
 }
+// добавление
 export const addTaskAC = (title: string, todolistId: string): AddTaskActionType => {
     return { type: 'ADD-TASK', title, todolistId }
 }

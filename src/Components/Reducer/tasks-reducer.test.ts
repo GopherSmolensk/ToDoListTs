@@ -1,7 +1,7 @@
 import { TasksStateType } from "../../App"
 import { removeTaskAC, addTaskAC, tasksReducer } from "./tasks-reducer"
 
-
+// удаление
 test('correct task should be deleted from correct array', () => {
     const startState: TasksStateType = {
         'todolistId1': [
@@ -24,7 +24,7 @@ test('correct task should be deleted from correct array', () => {
     expect(endState['todolistId2'].every(t => t.id != '2')).toBeTruthy()
 })
 
-
+// добавление
 test('correct task should be added to correct array', () => {
     const startState: TasksStateType = {
         'todolistId1': [
