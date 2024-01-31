@@ -16,8 +16,13 @@ export type AddTaskActionType = {
     title: string
 }
 
+
 export type ActionsType = RemoveTaskActionType | AddTaskActionType
 
+// Функция которая принимает наш стэйт и в зависимости от условия(action)
+//  как его преобразовывать или что с ним делать.
+// "action" это объект
+// аргументы должны быть однозначно протипизированы
 export const tasksReducer = (state: TasksStateType, action: ActionsType): TasksStateType => {
     switch (action.type) {
         case 'REMOVE-TASK': {
