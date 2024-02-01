@@ -18,6 +18,7 @@ test('user reducer should increment only childrenCount', () => {
     expect(endState.age).toBe(20)
     
 });
+
 //  user reduser should change name of user должен изменить имя пользлвателя
 test('user reduser should change name of user', () => {
     const startState = {name: 'Dimitriy', age: 20, childrenCount: 2};

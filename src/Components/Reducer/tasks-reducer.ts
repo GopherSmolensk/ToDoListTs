@@ -3,13 +3,16 @@
 import { v1 } from "uuid";
 import { TasksStateType } from "../../App";
 
+// Типизация объектов входящих в Reducer
 
+// StateType это объект на основании которого будет обрабатываться action 
+// Только по таким типам даным
 export type RemoveTaskActionType = {
     type: 'REMOVE-TASK'
     todolistId: string
     taskId: string
 }
-
+// ActionType объект который имеет тип строка и ключ и значение
 export type AddTaskActionType = {
     type: 'ADD-TASK'
     todolistId: string

@@ -22,7 +22,6 @@ export type TasksStateType = {
 
 function App() {
 
-
   let todolistId1 = v1();
   let todolistId2 = v1();
 
@@ -79,7 +78,6 @@ function App() {
       setTasks({ ...tasksObj });
     }
   }
-
 
 
   // let [filter, setFilter] = useState<FilterValuesType>("all");
