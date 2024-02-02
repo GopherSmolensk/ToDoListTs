@@ -18,9 +18,15 @@ export type AddTaskActionType = {
     todolistId: string
     title: string
 }
+export type ChangeTaskStatusActionType = {
+    type: 'CHANGE-TASK-STATUS'
+    taskId: string
+    todolistId: string
+    isDone: boolean
+}
 
 
-export type ActionsType = RemoveTaskActionType | AddTaskActionType
+export type ActionsType = RemoveTaskActionType | AddTaskActionType | ChangeTaskStatusActionType;
 
 // Функция которая принимает наш стэйт и в зависимости от условия(action)
 //  как его преобразовывать или что с ним делать.
@@ -29,7 +35,7 @@ export type ActionsType = RemoveTaskActionType | AddTaskActionType
 export const tasksReducer = (state: TasksStateType, action: ActionsType): TasksStateType => {
     switch (action.type) {
         case 'REMOVE-TASK': {
-            const  stateCopy = {...state};
+            const stateCopy = { ...state };
             // Меняем тудулисты котрые лежат в стэйте через инструкцию action 
             const tasks = state[action.todolistId];
 
@@ -38,7 +44,7 @@ export const tasksReducer = (state: TasksStateType, action: ActionsType): TasksS
             return stateCopy
         }
         case 'ADD-TASK': {
-            const stateCopy = {...state};
+            const stateCopy = { ...state };
             const tasks = stateCopy[action.todolistId];
             const newTask = { id: v1(), title: action.title, isDone: false }
             const newTasks = [newTask, ...tasks]
@@ -50,10 +56,15 @@ export const tasksReducer = (state: TasksStateType, action: ActionsType): TasksS
     }
 }
 // удаление
-export const removeTaskAC = ( taskId: string, todolistId: string): RemoveTaskActionType => {
-    return { type: 'REMOVE-TASK',taskId: taskId, todolistId: todolistId,  }
+export const removeTaskAC = (taskId: string, todolistId: string): RemoveTaskActionType => {
+    return { type: 'REMOVE-TASK', taskId: taskId, todolistId: todolistId, }
 }
 // добавление
 export const addTaskAC = (title: string, todolistId: string): AddTaskActionType => {
     return { type: 'ADD-TASK', title, todolistId }
+}
+export const changeTaskStatusAC = (taskId: string,
+    isDone: boolean,
+    todolistId: string): ChangeTaskStatusActionType => {
+    return { type: 'CHANGE-TASK-STATUS', taskId, isDone, todolistId }
 }
