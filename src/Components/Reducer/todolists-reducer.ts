@@ -3,30 +3,26 @@ import { v1 } from "uuid";
 import { FilterValuesType, TodolistType } from "../../App";
 
 
-// type ActionType = {
-//     type: string
-//     [key: string]: any
-// }
-
 export type RemoveTodolistActionType = {
-    type: 'REMOVE-TODOLIST',
+    type: 'REMOVE-TODOLIST'
     id: string
 }
 
 export type AddTodolistActionType = {
-    type: 'ADD-TODOLIST',
+    type: 'ADD-TODOLIST'
     title: string
+    todolistId: string
 }
 
 export type ChangeTodolistTitleActionType = {
-    type: 'CHANGE-TODOLIST-TITLE',
-    id: string,
+    type: 'CHANGE-TODOLIST-TITLE'
+    id: string
     title: string
 }
 
 export type ChangeTodolistFilterActionType = {
-    type: 'CHANGE-TODOLIST-FILTER',
-    id: string,
+    type: 'CHANGE-TODOLIST-FILTER'
+    id: string
     filter: FilterValuesType
 }
 
@@ -51,7 +47,7 @@ export const todolistsReducer = (state: Array<TodolistType>, action: ActionsType
             return [...state, {
                 // Мы вернули state, который протипизирован как TodolistType
                 // id из библиотеки uuid
-                id: v1(),
+                id: action.todolistId,
                 // title из типа актион как строка
                 title: action.title,
                 // filter берём значение со старта из FilterValuesType "all" | "active" | "completed"
@@ -81,7 +77,7 @@ export const removeTodoListAC = (TodolistId: string): RemoveTodolistActionType =
     return { type: 'REMOVE-TODOLIST', id: TodolistId }
 }
 export const addTodoListAC = (title: string): AddTodolistActionType => {
-    return { type: 'ADD-TODOLIST', title: title }
+    return { type: 'ADD-TODOLIST', title, todolistId: v1() }
 }
 export const changeTodolistTitleAC = (id: string, title: string): ChangeTodolistTitleActionType => {
     return { type: 'CHANGE-TODOLIST-TITLE', title: title, id: id }
