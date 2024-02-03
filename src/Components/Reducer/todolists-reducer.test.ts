@@ -5,7 +5,7 @@ import {
     changeTodolistFilterAC
 } from './todolists-reducer';
 import { v1 } from "uuid";
-import { FilterValuesType, TodolistType } from '../../App';
+import { FilterValuesType, TodolistType } from '../../AppWithReducers';
 
 
 // удаление
@@ -87,7 +87,7 @@ test('correct filter of todolist should be change', () => {
         { id: todolistId2, title: "What to bue", filter: "all" },
     ]
     // какое то действие с этими данными
-    const action = changeTodolistFilterAC(todolistId2, newFilter)
+    const action = changeTodolistFilterAC("all", newFilter)
 
     const endState = todolistsReducer(startState, action);
 
