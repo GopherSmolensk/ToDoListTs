@@ -41,18 +41,10 @@ export const todolistsReducer = (state: Array<TodolistType>, action: ActionsType
     // переключатель в зависимости от случая(case)
     switch (action.type) {
         case 'REMOVE-TODOLIST': {
-            return state.filter(itemTask => itemTask.id != action.id)
+            return state.filter(itemTask => itemTask.id !== action.id)
         }
         case 'ADD-TODOLIST': {
-            return [...state, {
-                // Мы вернули state, который протипизирован как TodolistType
-                // id из библиотеки uuid
-                id: action.todolistId,
-                // title из типа актион как строка
-                title: action.title,
-                // filter берём значение со старта из FilterValuesType "all" | "active" | "completed"
-                filter: 'all'
-            }]
+            return [{id: action.todolistId, title: action.title, filter: 'all'},...state]
         }
         case 'CHANGE-TODOLIST-TITLE': {
             const todolist = state.find(tl => tl.id === action.id);
