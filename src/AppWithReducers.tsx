@@ -43,7 +43,6 @@ function AppWithReducers() {
     ],
   });
 
-
   function removeTask(id: string, todolistId: string) {
     dispatchToTasksReducer(removeTaskAC(id, todolistId));
   }
@@ -59,7 +58,6 @@ function AppWithReducers() {
   function changeTaskTitle(taskId: string, newTitle: string, todolistId: string) {
     dispatchToTasksReducer(changeTaskTitleAC(taskId, newTitle, todolistId));
   }
-
 
   // let [filter, setFilter] = useState<FilterValuesType>("all");
 

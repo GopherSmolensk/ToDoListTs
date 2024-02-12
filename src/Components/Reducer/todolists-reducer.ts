@@ -29,11 +29,8 @@ export type ChangeTodolistFilterActionType = {
 export type ActionsType = RemoveTodolistActionType | AddTodolistActionType
     | ChangeTodolistTitleActionType | ChangeTodolistFilterActionType
 
-
 // Функция которая принимает наш стэйт и в зависимости от условия(action)
-
 // тоесть REDUCER ====>>>>> ЭТО ФУНКЦИЯ КОТОРАЯ ПРЕОБРАЗОВЫВАЕТ СТАЙТ А НЕ ХРАНИТ ЕГО!!!!
-
 //  как его преобразовывать или что с ним делать.
 // "action" это объект
 // аргументы должны быть однозначно протипизированы
